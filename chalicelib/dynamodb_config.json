@@ -1,0 +1,42 @@
+{
+    "TableName": "chat-context-table",
+    "AttributeDefinitions": [
+        {
+            "AttributeName": "chat_id",
+            "AttributeType": "N"
+        },
+        {
+            "AttributeName": "role",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "message",
+            "AttributeType": "S"
+        },
+        {
+            "AttributeName": "ttl",
+            "AttributeType": "N"
+        }
+    ],
+    "KeySchema": [
+        {
+            "AttributeName": "chat_id",
+            "KeyType": "HASH"
+        },
+        {
+            "AttributeName": "ttl",
+            "KeyType": "RANGE"
+        }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "TimeToLiveSpecification": {
+        "AttributeName": "ttl",
+        "Enabled": true
+    },
+    "Tags": [
+        {
+            "Key": "Environment",
+            "Value": "dev"
+        }
+    ]
+}
